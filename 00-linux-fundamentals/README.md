@@ -1,4 +1,4 @@
- # Lab 00 – Linux Fundamentals: Users, Groups, Permissions, sudo, ACLs
+ # Lab 01 – Linux Fundamentals: Users, Groups, Permissions, sudo, ACLs
 
 ## 🎯 Objective
 Build a small multi-user Ubuntu environment and control who can read, write and administer a shared
