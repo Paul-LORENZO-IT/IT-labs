@@ -1,4 +1,4 @@
-# 🛡️ Lab 01 – Linux Hardening & Access Control
+## 🛡️ Lab 01 – Linux Hardening & Access Control
 
 ## Project Overview
 
@@ -20,170 +20,146 @@ Full implementation steps, configurations, security tests and screenshots.
 
 
 
-#🛡️ Ubuntu Server 24.04 LTS – Enterprise Hardening & Access Control
+## 📌 01. Project Overview
 
-
-📌 Project Overview
-
-This project demonstrates the implementation of an enterprise security baseline on Ubuntu Server 24.04 LTS.
+This project focuses on implementing an enterprise security baseline on Ubuntu Server 24.04 LTS.
 
 The lab simulates a corporate multi-user environment where different departments share a centralized Linux server while maintaining strict access restrictions and controlled administrative privileges.
 
-The main objective is to strengthen server security through system hardening, network protection, identity management, filesystem permissions, and security auditing.
+The main objective is to strengthen server security through:
 
-Core principle: Principle of Least Privilege.
+Operating system hardening
+Network protection
+Identity and Access Management (IAM)
+Filesystem permissions
+Privilege management
+Security auditing
+Core Security Principle: Least Privilege
 
 Every user should have access only to the resources and administrative operations required for their responsibilities.
 
+# 🎯 02.Project Objectives
 
-🎯 Objectives
+Security Domain	Implementation
+SSH Security	SSH key authentication and root login restriction
+Firewall	UFW firewall configuration
+Intrusion Prevention	Fail2ban brute-force protection
+Security Updates	Automated security updates
+Identity Management	Linux users and groups
+Access Control	POSIX ACLs
+Privilege Management	Restricted sudo permissions
+Security Auditing	Auditd monitoring
 
-Harden SSH authentication and disable direct root access.
-Configure UFW firewall rules
-Deploy Fail2ban for SSH brute-force protection.
-Enable automated security updates.
-Implement department-based Linux user and group management.
-Configure POSIX ACLs for shared directories.
-Restrict administrative commands using sudo.
-Monitor security-related configuration changes using Auditd.
-
-
-🏗️ Infrastructure
-
+# 🏗️ 03. Infrastructure & Technologies
+Lab Environment
 Component	Configuration
 Operating System	Ubuntu Server 24.04 LTS
 Virtualization	VirtualBox / VMware
 RAM	2–4 GB
 CPU	2 vCPUs
 Storage	25 GB
-Firewall	UFW
-Intrusion Prevention	Fail2ban
-Remote Access	OpenSSH
-Access Control	Linux Groups and POSIX ACLs
-Privilege Management	Sudo
-Auditing	Auditd
+Network	NAT / Bridged Adapter
+Security Technologies
+Technology	Purpose
+OpenSSH	Secure remote administration
+UFW	Network firewall
+Fail2ban	Brute-force prevention
+Unattended Upgrades	Automated security patching
+Linux Groups	Department-based access
+POSIX ACLs	Granular filesystem permissions
+Sudo	Administrative privilege delegation
+Auditd	Security event monitoring
 
+# 👥 04. Corporate User Structure
 
-🏢 Corporate User Structure
+The lab simulates a corporate organization with three departments.
 
-Department	Linux Group	User
+Department	Linux Group	User Account
 IT Administration	it-admins	admin01
 Human Resources	hr-team	hr01
 Finance	finance-team	finance01
-
-Each department receives a dedicated shared directory.
-
+Shared Directory Architecture
 text
 /srv/company/
 │
 ├── IT/
 ├── HR/
 └── Finance/
+Each department receives access only to its authorized workspace through Linux group permissions and POSIX ACLs.
 
 
-🔐 Security Implementation
+# 🔐 05. Security Implementation
 
-1. SSH Hardening
-   
-Disabled direct root login.
-Configured public-key authentication.
-Disabled password-based SSH authentication.
-Restricted SSH access to authorized accounts.
-Validated SSH daemon configuration.
+The project is divided into nine implementation phases.
 
-3. Firewall Protection
-Implemented UFW with a default-deny incoming policy.
-Restricted incoming connections.
-Authorized SSH access.
-Verified firewall rules.
+Phase	Security Implementation	Tool
+01	Initial Server Configuration	Ubuntu Server
+02	SSH Hardening	OpenSSH
+03	Firewall Configuration	UFW
+04	Brute-Force Protection	Fail2ban
+05	Automated Security Updates	Unattended Upgrades
+06	User & Group Management	Linux IAM
+07	Filesystem Access Control	POSIX ACLs
+08	Privilege Delegation	Sudo
+09	Security Monitoring	Auditd
 
-5. Brute-Force Protection
-Deployed Fail2ban to monitor SSH authentication attempts and temporarily ban IP addresses associated with repeated failures.
 
-6. Automated Security Updates
-Configured unattended-upgrades to automate security patch installation.
+# 🧪 06. Security Validation
 
-7. Identity and Access Management
-Created dedicated Linux users and groups to simulate a corporate departmental structure.
-Implemented role-based access control through Linux group membership.
+Each security control will be tested to verify its effectiveness.
 
-8. POSIX ACLs
-Configured granular permissions for departmental directories.
-IT users access IT resources.
-HR users access HR resources.
-Finance users access Finance resources.
-Unauthorized users are denied access.
-
-9. Sudo Privilege Delegation
-Configured dedicated sudoers policies to allow authorized administrative commands without granting unnecessary unrestricted root privileges.
-
-10. Security Auditing
-Configured Auditd to monitor changes to important identity and privilege configuration files.
-
-🧪 Security Validation
-
-The following controls were tested:
-
-Test	Expected Result
-SSH root login	Denied
+Security Test	Expected Result
+Root SSH login	Denied
 SSH password authentication	Disabled
 SSH key authentication	Successful
-UFW status	Active
+UFW firewall	Active
 Fail2ban service	Running
 Department group membership	Verified
-HR access to Finance directory	Denied
-Finance access to HR directory	Denied
+Unauthorized directory access	Denied
 Authorized sudo command	Allowed
-Unauthorized sudo command	Denied
 Audit rules	Loaded
-📸 Evidence and Documentation
+📸 07. Evidence & Screenshots
 
-Screenshots are organized by implementation phase:
+Screenshots will document the implementation and validation of each security control.
 
-Initial Ubuntu configuration.
-SSH hardening.
-Firewall and Fail2ban.
-Automated security updates.
-User and group management.
-POSIX ACL permissions.
-Sudo privilege delegation.
-Security auditing.
+Initial Ubuntu Server configuration
+SSH hardening
+UFW firewall rules
+Fail2ban configuration
+Automated security updates
+User and group management
+POSIX ACL permissions
+Sudo privilege delegation
+Auditd security monitoring
 
-All screenshots represent practical validation performed in the Ubuntu virtual machine.
-
-
-🧠 Skills Demonstrated
-
+# 🧠 08. Skills Demonstrated
 Linux System Administration
 Ubuntu Server Hardening
 SSH Security
 Network Security
-Firewall Configuration
+Firewall Management
 Intrusion Prevention
-Identity and Access Management
-Role-Based Access Control
+Identity and Access Management (IAM)
+Role-Based Access Control (RBAC)
 POSIX ACLs
-Sudo Privilege Management
+Privilege Management
 Linux Security Auditing
 
 
-🚀 Future Improvements
+# 🚀 09. Future Improvements
+Centralized authentication with Active Directory or LDAP
+Multi-Factor Authentication (MFA)
+Centralized log management
+Configuration automation with Ansible
+Vulnerability scanning
+Backup and disaster recovery
+Security monitoring and alerting
 
-Centralized authentication using LDAP.
-Multi-factor authentication.
-Centralized log management.
-Automated configuration management using Ansible.
-Vulnerability scanning.
-Backup and disaster recovery.
-Security monitoring and alerting.
+# 📝 10. Conclusion
+This lab demonstrates the practical implementation of a Linux server security baseline using Ubuntu Server 24.04 LTS.
 
+By combining system hardening, network protection, identity management, filesystem permissions and administrative privilege controls, the project establishes a more secure and manageable multi-user environment.
 
-📝 Conclusion
+Project Category: Linux Administration | Cybersecurity | IAM | Server Hardening
 
-This project demonstrates practical Linux security administration skills through the implementation of multiple security controls on Ubuntu Server 24.04 LTS.
-
-It establishes a secure foundation for a corporate multi-user environment by combining operating system hardening, network protection, identity management, filesystem access control, and privilege governance.
-
-Project Category: Linux Administration | Cybersecurity | Server Hardening | IAM
-
-Environment: Ubuntu Server 24.04 LTS
+Platform: Ubuntu Server 24.04 LTS
