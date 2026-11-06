@@ -78,7 +78,7 @@ The infrastructure organizes three separate corporate entities into isolated ope
 
 The lab deployment executes systematically across nine specific phases:
 
-Use code with caution.
+
 ┌─────────────────────────────────────────────────────────────────────────┐
 │  01. Initial Server Prep ──► 02. OpenSSH Hardening ──► 03. UFW Firewall  │
 └─────────────────────────────────────────────────────────────────────────┘
