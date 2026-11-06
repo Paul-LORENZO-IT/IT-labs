@@ -109,7 +109,7 @@ The lab deployment executes systematically across nine specific phases:
 ---
 
 ## 📸 07. Evidence & Screenshots Index
-*(Maintain exact visual captures inside the `/assets/screenshots/` workspace to serve as verifiable project proof)*
+
 
 1.  **Initial Infrastructure Setup:** `01_base_ubuntu_install.png`
 2.  **SSH Hardening Verification:** `02_ssh_hardened_config.png`
